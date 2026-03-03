@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M2 Mobile Group - Leave</title>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header>M2 Mobile Group</header>
+
+<div id="tabCalendar" class="view active">
+  <div class="calendar">
+    <div class="month">
+      <span onclick="changeMonth(-1)">◀</span>
+      <span id="monthTitle"></span>
+      <span onclick="changeMonth(1)">▶</span>
+    </div>
+
+    <div class="weekdays">
+      <div>Sun</div><div>Mon</div><div>Tue</div>
+      <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+
+    <div class="days" id="days"></div>
+  </div>
+
+  <div class="card">
+    <b>Leave on <span id="selectedDateText"></span></b>
+    <div id="dayLeaveList"></div>
+  </div>
+
+  <button onclick="openModal()">+ Add Leave</button>
+</div>
+
+<div id="tabLeave" class="view">
+  <div class="card">
+    <b>Monthly Leave List</b>
+    <div id="monthLeave"></div>
+  </div>
+</div>
+
+<div id="tabFine" class="view">
+  <div class="card">
+    <b>Monthly Fine Details</b>
+    <div id="monthFineList"></div>
+    <hr>
+    <b>Total Fine This Month: </b>
+    <span id="monthFineTotal">0 MMK</span>
+  </div>
+</div>
+
+<div class="tabbar">
+  <div class="tab active" onclick="switchTab('Calendar',this)">📅<br>Calendar</div>
+  <div class="tab" onclick="switchTab('Leave',this)">👥<br>Leave</div>
+  <div class="tab" onclick="switchTab('Fine',this)">💰<br>Fine</div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="sheet">
+    <select id="emp"></select>
+    <input id="reason" placeholder="Leave Reason">
+    <button onclick="submitLeave()">Submit</button>
+    <button onclick="closeModal()" class="gray">Cancel</button>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+
+</body>
+</html>
